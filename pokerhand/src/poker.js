@@ -1,4 +1,4 @@
-const valueSet = {
+const VALUE_SET = {
   '1': 1,
   '2': 2,
   '3': 3,
@@ -14,6 +14,8 @@ const valueSet = {
   K: 13
 };
 
+const getValuefromValueSet = value => VALUE_SET[value];
+
 const poker = {
   play: (black, white) => {
     return 'White wins. - with high card: Ace';
@@ -24,7 +26,7 @@ const poker = {
       const value = card[0];
       const suit = card[1];
 
-      return [valueSet[value], suit];
+      return [getValuefromValueSet(value), suit];
     });
   }
 };
