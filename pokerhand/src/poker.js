@@ -18,6 +18,9 @@ const getValuefromValueSet = value => VALUE_SET[value];
 
 const poker = {
   play: (black, white) => {
+    const blackHand = poker.convertHandToCard(black);
+    const whiteHand = poker.convertHandToCard(white);
+
     return 'White wins. - with high card: Ace';
   },
   convertHandToCard: stringHand => {

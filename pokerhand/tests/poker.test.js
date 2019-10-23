@@ -25,4 +25,13 @@ describe('poker', () => {
       expect(actual).toEqual(expected);
     });
   });
+
+  describe('compare', () => {
+    it('convert 2H 3D 5S 9C KD to be card objects', () => {
+      const actual = poker.convertHandToCard('2H 3D 5S 9C KD');
+      const expected = [[2, 'H'], [3, 'D'], [5, 'S'], [9, 'C'], [13, 'D']];
+
+      expect(actual).toEqual(expected);
+    });
+  });
 });

@@ -1,0 +1,41 @@
+Arguments: 
+  /Users/kanisornsutham/.nvm/versions/node/v10.16.0/bin/node /Users/kanisornsutham/.nvm/versions/node/v10.16.0/bin/yarn add -D @ypes/jest jest
+
+PATH: 
+  /usr/local/opt/python/libexec/bin:/Users/kanisornsutham/.nvm/versions/node/v10.16.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Library/Apple/bin:/usr/local/go/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local/go/bin:/Users/kanisornsutham/go/bin
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  10.16.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@ypes%2fjest: Not found
+      at Request.params.callback [as _callback] (/Users/kanisornsutham/.nvm/versions/node/v10.16.0/lib/node_modules/yarn/lib/cli.js:66091:18)
+      at Request.self.callback (/Users/kanisornsutham/.nvm/versions/node/v10.16.0/lib/node_modules/yarn/lib/cli.js:129590:22)
+      at Request.emit (events.js:198:13)
+      at Request.<anonymous> (/Users/kanisornsutham/.nvm/versions/node/v10.16.0/lib/node_modules/yarn/lib/cli.js:130562:10)
+      at Request.emit (events.js:198:13)
+      at IncomingMessage.<anonymous> (/Users/kanisornsutham/.nvm/versions/node/v10.16.0/lib/node_modules/yarn/lib/cli.js:130484:12)
+      at Object.onceWrapper (events.js:286:20)
+      at IncomingMessage.emit (events.js:203:15)
+      at endReadableNT (_stream_readable.js:1129:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
+
+npm manifest: 
+  {
+    "name": "tennis",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
