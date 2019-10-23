@@ -1,37 +1,24 @@
-const VALUE_SET = {
-  '1': 1,
-  '2': 2,
-  '3': 3,
-  '4': 4,
-  '5': 5,
-  '6': 6,
-  '7': 7,
-  '8': 8,
-  '9': 9,
-  '10': 10,
-  J: 11,
-  Q: 12,
-  K: 13
+import { highCardChecker } from './checkers';
+import { getValuefromValueSet } from './card';
+
+export const duel = (blackHand, whiteHand) => {
+  return highCardChecker(blackHand, whiteHand);
 };
 
-const getValuefromValueSet = value => VALUE_SET[value];
+export const play = (black, white) => {
+  const blackHand = convertHandToCard(black);
+  const whiteHand = convertHandToCard(white);
 
-const poker = {
-  play: (black, white) => {
-    const blackHand = poker.convertHandToCard(black);
-    const whiteHand = poker.convertHandToCard(white);
-
-    return 'White wins. - with high card: Ace';
-  },
-  convertHandToCard: stringHand => {
-    return stringHand.split(' ').map(cardStr => {
-      const card = cardStr.split('');
-      const value = card[0];
-      const suit = card[1];
-
-      return [getValuefromValueSet(value), suit];
-    });
-  }
+  const result = duel(blackHand, whiteHand);
+  return result;
 };
 
-module.exports = poker;
+export const convertHandToCard = stringHand => {
+  return stringHand.split(' ').map(cardStr => {
+    const card = cardStr.split('');
+    const value = card[0];
+    const suit = card[1];
+
+    return [getValuefromValueSet(value), suit];
+  });
+};
