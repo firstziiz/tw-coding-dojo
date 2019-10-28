@@ -17,6 +17,7 @@ let state = {
     B: 0
   }
 };
+
 const initGame = () => {
   state = {
     isDeuce: false,
@@ -64,6 +65,11 @@ const getState = () => {
     if (getScore('A') === 'thirty' || getScore('B') === 'thirty') {
       if (getScore('A') === 'thirty') return `A is the winner with Deuce`;
       else return `B is the winner with Deuce`;
+    } else if (getScore('A') === 'fifteen' && getScore('B') === 'fifteen') {
+      state.deuce = {
+        A: 0,
+        B: 0
+      };
     } else {
       if (getScore('A') === 'fifteen') {
         return `Deuce state | Advantage A`;

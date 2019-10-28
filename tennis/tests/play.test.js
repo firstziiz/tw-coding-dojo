@@ -78,6 +78,17 @@ describe('play', () => {
     expect(tennis.getState()).toBe('Deuce state | Advantage A');
   });
 
+  it('A has 1 score twice in deuce state', () => {
+    tennis.win('A');
+    tennis.win('A');
+    tennis.win('A');
+    tennis.win('B');
+    tennis.win('B');
+    tennis.win('B');
+    tennis.win('A');
+    expect(tennis.getState()).toBe('Deuce state | Advantage A');
+  });
+
   it('A is the winner in deuce state', () => {
     tennis.win('A');
     tennis.win('A');
