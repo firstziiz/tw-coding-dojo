@@ -8,11 +8,11 @@ const SCORE_SET = {
 
 let state = {
   isDeuce: false,
-  deuceState: {
+  deuce: {
     A: 0,
     B: 0
   },
-  player: {
+  normal: {
     A: 0,
     B: 0
   }
@@ -20,48 +20,47 @@ let state = {
 const initGame = () => {
   state = {
     isDeuce: false,
-    deuceState: {
+    deuce: {
       A: 0,
       B: 0
     },
-    player: {
+    normal: {
       A: 0,
       B: 0
     }
   };
 };
 
+const isDeuce = () => state.isDeuce;
+const setDeuce = isDeuce => (state.isDeuce = isDeuce);
+
 const getScore = name => {
-  if (state.isDeuce) return SCORE_SET[state.deuceState[name]];
+  let gameState = 'normal';
+  if (isDeuce()) gameState = 'deuce';
 
   checkDeuce();
-  return SCORE_SET[state.player[name]];
+  return SCORE_SET[state[gameState][name]];
 };
+
 const win = name => {
-  if (state.isDeuce) state.deuceState[name] += 1;
+  if (isDeuce()) state['deuce'][name] += 1;
   else {
-    state.player[name] += 1;
+    state['normal'][name] += 1;
     checkDeuce();
   }
 };
 
-const setScore = (name, score) => (state.player[name] = score);
-
-const isDeuce = () => state.isDeuce;
-const setDeuce = isDeuce => {
-  state.isDeuce = isDeuce;
-};
 const checkDeuce = () => {
   if (
-    SCORE_SET[state.player.A] == 'forty' &&
-    SCORE_SET[state.player.B] == 'forty'
+    SCORE_SET[state.normal.A] == 'forty' &&
+    SCORE_SET[state.normal.B] == 'forty'
   ) {
     state.isDeuce = true;
   }
 };
 
 const getState = () => {
-  if (state.isDeuce) {
+  if (isDeuce()) {
     if (getScore('A') === 'thirty' || getScore('B') === 'thirty') {
       if (getScore('A') === 'thirty') return `A is the winner with Deuce`;
       else return `B is the winner with Deuce`;
@@ -83,7 +82,6 @@ module.exports = {
   getScore,
   setDeuce,
   win,
-  setScore,
   isDeuce,
   getState
 };
